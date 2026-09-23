@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Booklet
+
+A modern book catalog and reading tracker built with Next.js. This project lets users browse books, view details, save favorite titles to a wishlist, and track books they have already read in a clean, responsive interface.
+
+## Project Overview
+
+Booklet is a simple yet polished reading application designed to help users discover books and manage their reading journey. It combines a book showcase, detailed book pages, and personalized reading lists in a single experience.
+
+## Features
+
+- Book homepage with featured listings
+- Responsive card-based layout for books
+- Detailed individual book pages
+- Wishlist and read-list tracking
+- Clean UI with Tailwind CSS and DaisyUI
+- Data-driven content using a local JSON source
+- Built with the latest Next.js app router structure
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- JavaScript
+- Tailwind CSS
+- DaisyUI
+- Recharts
+
+## Project Structure
+
+```bash
+booklet/
+├── public/
+├── src/
+│   └── app/
+│       ├── components/
+│       ├── context/
+│       ├── books/
+│       ├── globals.css
+│       ├── layout.js
+│       ├── loading.jsx
+│       └── page.js
+├── data.json
+├── package.json
+├── next.config.mjs
+├── jsconfig.json
+├── postcss.config.mjs
+├── eslint.config.mjs
+└── README.md
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (v18 or newer)
+- npm
+
+### Installation
+
+```bash
+git clone <your-repository-url>
+cd booklet
+npm install
+```
+
+### Run the app
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev     # start the development server
+npm run build   # create a production build
+npm run start   # run the production server
+npm run lint    # run ESLint checks
+```
 
-## Learn More
+## App Highlights
 
-To learn more about Next.js, take a look at the following resources:
+- Discover books by category, rating, and publishing details
+- Save titles to a reading wishlist
+- Mark completed reads for personal tracking
+- Flexible, scalable structure for future expansion
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This app is designed as a learning project and can be extended with features such as search, filters, user authentication, or a real backend database.
