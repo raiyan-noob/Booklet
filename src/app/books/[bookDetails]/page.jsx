@@ -1,15 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Card from '../Card';
+import books from '../../../../public/data.json';
 
 const BookDetail = async ({ params }) => {
     const { bookDetails } = await params;
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/data.json`);
-    if (!response.ok) {
-        throw new Error('Data failed to load');
-    }
-
-    const books = await response.json();
     const book = books.find((item) => String(item.bookId) === bookDetails);
 
     if (!book) {

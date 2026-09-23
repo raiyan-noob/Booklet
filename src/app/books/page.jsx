@@ -1,18 +1,9 @@
 import React from 'react';
 import Hero from '../components/homePage/Hero';
 import BookPage from '../components/homePage/books';
+import books from '../../../public/data.json';
 
-const getBooks = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/data.json`);
-    if (!res.ok) {
-        throw new Error('Data failed to load');
-    }
-    return res.json();
-};
-
-const BooksPage = async () => {
-    const books = await getBooks();
-
+const BooksPage = () => {
     return (
         <div>
             <Hero />
