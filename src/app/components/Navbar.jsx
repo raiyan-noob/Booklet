@@ -1,8 +1,10 @@
 'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [theme, setTheme] = useState(() => {
     if (typeof window === 'undefined') {
       return 'light';
@@ -21,6 +23,12 @@ const Navbar = () => {
     localStorage.setItem('booklet-theme', nextTheme);
     document.documentElement.dataset.theme = nextTheme;
   };
+
+  const isActive = (route) => route === '/' ? pathname === '/' : pathname.startsWith(route);
+
+  const navLinkClass = (route, extraClass = '') => `rounded-xl font-medium ${extraClass} ${
+    isActive(route) ? 'bg-success/10 text-success' : ''
+  }`;
 
     return (
 
@@ -55,19 +63,19 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-2xl z-50 mt-3 w-56 p-3 shadow-xl border border-base-200"
       >
         <li>
-          <Link href="/" className="rounded-xl font-medium">
+          <Link href="/" className={navLinkClass('/')}>
             Home
           </Link>
         </li>
 
         <li>
-          <Link href="../components/listedPage" className="rounded-xl font-medium">
+          <Link href="../components/listedPage" className={navLinkClass('/components/listedPage')}>
             Listed Books
           </Link>
         </li>
 
         <li>
-          <Link href="../components/readBooks" className="rounded-xl font-medium">
+          <Link href="../components/readBooks" className={navLinkClass('/components/readBooks')}>
             Pages to Read
           </Link>
         </li>
@@ -88,7 +96,7 @@ const Navbar = () => {
       <li>
         <Link
           href="/"
-          className="rounded-xl px-4 font-medium hover:bg-success/10 hover:text-success"
+          className={navLinkClass('/', 'px-4 hover:bg-success/10 hover:text-success')}
         >
           Home
         </Link>
@@ -97,7 +105,7 @@ const Navbar = () => {
       <li>
         <Link
          href="../components/listedPage"
-          className="rounded-xl px-4 font-medium hover:bg-success/10 hover:text-success"
+          className={navLinkClass('/components/listedPage', 'px-4 hover:bg-success/10 hover:text-success')}
         >
           Listed Books
         </Link>
@@ -106,7 +114,7 @@ const Navbar = () => {
       <li>
         <Link
           href="../components/readBooks"
-          className="rounded-xl px-4 font-medium hover:bg-success/10 hover:text-success"
+          className={navLinkClass('/components/readBooks', 'px-4 hover:bg-success/10 hover:text-success')}
         >
           Pages to Read
         </Link>
